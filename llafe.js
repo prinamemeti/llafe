@@ -133,7 +133,7 @@ function update(){
     }
 
     if (!WORDS.includes(guess)){
-        document.getElementById("answer").innerText = "Not a valid guess";
+        document.getElementById("answer").innerText = "Fjala nuk u gjet";
         return;
     }
 
