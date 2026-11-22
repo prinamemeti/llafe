@@ -7,9 +7,9 @@ var column = 0;
 var gameOver = false;
 
 const WORDS = [
-    "SHAUM", "BEQAR", "BARUT", "KACOJ", "BATAK", "SHKOP", "TRAUP", "THAJK", "THAJR", "PRAJT", "LIBER", "GJELI", "THESI",
-    "FAJKE", "KSHAU", "HAZER", "TOMEL", "FSHOJ", "KRAJS", "HAMOM", "DOLLM", "FRAJK", "HUPET", "KUSHT", "RAUSH", "XHOMI", "KOMET", 
-    "OMBEL", "TORTE", "HEKER", "LETER", "KASHT", "HAXHI"
+    "SHAUM", "BEQAR", "BARUT", "BATAK", "SHKOP", "TRAUP", "THAJK", "THAJR", "PRAJT", "LIBER", "GJELI", "GJATH", "THESI",
+    "FAJKE", "FRAJM", "FRAJK", "KACOJ", "KSHAU", "KASHT", "KRAJS", "HAZER", "TOMEL", "TRAUS", "FSHOJ",  "HAMOM", "DOLLM", "HUPET", "KUSHT", "RAUSH", "XHOMI", "KOMET",
+    "OMBEL", "TORTE", "HEKER", "LETER", "HAXHI", "HUPSH", "XHIZA"
 
 ];
 
