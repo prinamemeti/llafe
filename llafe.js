@@ -59,8 +59,8 @@ document.addEventListener("keyup", (e) => {
     }
     else if (e.code == "Enter"){
         update();
-        row = row + 1;
-        column = 0
+        // row = row + 1;
+        // column = 0
     }
 
     if(!gameOver && row == height){
@@ -73,23 +73,58 @@ document.addEventListener("keyup", (e) => {
 }
 
 function update(){
+    let guess = "";
+    document.getElementById("answer").innerText = "";
+    for (let c=0; c<width; c++){
+        let currentTile = document.getElementById(row.toString()+ "-" + c.toString());
+        let letter = currentTile.innerText;
+        guess += letter;
+    }
+
+    if (!WORDS.includes(guess)){
+        document.getElementById("answer").innerText = "Not a valid guess";
+        return;
+    }
+
     let correct = 0;
+    let letterCount = {};
+    for (let i=0; i<word.length; i++) {
+        letter = word[i];
+        if (letterCount[letter]) {
+            letterCount[letter] += 1;
+        }
+        else {
+            letterCount[letter] = 1;
+        }
+    }
     for (let c=0; c< width; c++){
         let currentTile = document.getElementById(row.toString()+ "-" + c.toString());
         let letter = currentTile.innerText;
         if (word[c] == letter){
             currentTile.classList.add("correct");
             correct = correct + 1;
+            letterCount[letter] -= 1;
         }
-        else if (word.includes(letter)){
-            currentTile.classList.add("present");
-        }
-        else {
-            currentTile.classList.add("absent");
-        }
-
         if (correct == width){
             gameOver = true;
         }
     }
+ //check wrong positions
+    for (let c=0; c< width; c++){
+        let currentTile = document.getElementById(row.toString()+ "-" + c.toString());
+        let letter = currentTile.innerText;
+
+        if (!currentTile.classList.contains("correct")) {
+            if (word.includes(letter) && letterCount[letter] > 0) {
+                currentTile.classList.add("present");
+                letterCount[letter] -= 1;
+            } else {
+                currentTile.classList.add("absent");
+            }
+        }
+    }
+
+
+    row = row + 1;
+    column = 0
 }
